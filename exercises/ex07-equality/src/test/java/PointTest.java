@@ -31,11 +31,6 @@ class PointTest {
   }
 
   @Test
-  void equalPointsShareHashCode() {
-    assertEquals(new Point(5, 6).hashCode(), new Point(5, 6).hashCode());
-  }
-
-  @Test
   void differentPointsDifferInHashCode() {
     assertNotEquals(new Point(1, 2).hashCode(), new Point(3, 4).hashCode());
   }

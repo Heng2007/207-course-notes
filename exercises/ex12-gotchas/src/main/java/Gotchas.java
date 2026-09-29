@@ -29,7 +29,7 @@ public class Gotchas {
    */
   public void setName(String name) {
     // TODO: assign the parameter to the FIELD (hint: use `this`).
-    name = name;
+    this.name = name;
   }
 
   /**
@@ -43,7 +43,18 @@ public class Gotchas {
   public static int[][] deepCopy(int[][] grid) {
     // TODO: build a new outer array and copy EACH inner array too, so that
     //       nothing is shared with `grid`.
-    return grid.clone();
+    int[][] newgrid = new int[grid.length][grid[0].length];
+    int counting_outer = 0;
+    int counting_inner = 0;
+    for(int[] i : grid){
+      for (int x: i){
+        newgrid[counting_outer][counting_inner] = x;
+        counting_inner++;
+      }
+      counting_inner = 0;
+      counting_outer++;
+    }
+    return newgrid;
   }
 
   /**
@@ -58,6 +69,7 @@ public class Gotchas {
    */
   public static boolean sameValue(Integer a, Integer b) {
     // TODO: compare the VALUES, not the references.
-    return a == b;
+
+    return (int)a == (int)b;
   }
 }
